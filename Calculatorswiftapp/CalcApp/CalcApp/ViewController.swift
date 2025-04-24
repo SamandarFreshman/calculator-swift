@@ -91,16 +91,22 @@ class ViewController: UIViewController
     {
         var count = 0
         var funcCharIndexes = [Int]()
+        var dotCount = 0
         
         for char in workings
         {
+            if char == "." {
+                        dotCount += 1
+                    }
             if (specialCharacter(char: char))
             {
                 funcCharIndexes.append(count)
             }
             count+=1
         }
-        
+        if dotCount > 1 {
+                return false
+            }
         var previous: Int = -1
         
         for index in funcCharIndexes
@@ -137,6 +143,14 @@ class ViewController: UIViewController
             return true
         }
         if (char == "+")
+        {
+            return true
+        }
+        if (char == "-")
+        {
+            return true
+        }
+        if (char == "%")
         {
             return true
         }
